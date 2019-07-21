@@ -14,16 +14,20 @@ public class Tourist {
     private String country;
     private String notes;
     private int dateOfBirth;
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name = "FLIGHT_ID")
-     private  Flight flight;
+     private  List<Flight> flight;
     public Tourist(){};
 
-    public Flight getFlight() {
+    public void addFlight (Flight f){
+        flight.add(f);
+    }
+
+    public List< Flight> getFlight() {
         return flight;
     }
 
-    public void setFlight(Flight flight) {
+    public void setFlight(List<Flight> flight) {
         this.flight = flight;
     }
 
@@ -35,7 +39,7 @@ public class Tourist {
         this.country = country;
         this.notes = notes;
         this.dateOfBirth = dateOfBirth;
-        this.flight=flight;
+
 
     }
 

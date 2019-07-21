@@ -1,8 +1,8 @@
 package com.balondev.MenedzerLotow.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -14,27 +14,37 @@ public class Flight {
     private String departureDate;
     private int amountOfFPlaces;
     private int price;
-    private Tourist tourist;
+
+    @ManyToMany
+    @JoinColumn(name = "TOURIST_ID")
+    @JsonIgnore
+    private List<Tourist> tourist;
 
     public Flight() {
     }
 
-    public Flight(long id, String arrivalDate, String departureDate, int amountOfFPlaces, int price, Tourist tourist) {
+    public Flight(long id, String arrivalDate, String departureDate, int amountOfFPlaces, int price, long touristId, Tourist tourist) {
         this.id = id;
         this.arrivalDate = arrivalDate;
         this.departureDate = departureDate;
         this.amountOfFPlaces = amountOfFPlaces;
         this.price = price;
-        this.tourist = tourist;
+
+
     }
 
-    public Tourist getTourist() {
+    public void addToList(Tourist t) {
+        tourist.add(t);
+    }
+
+    public List<Tourist> getTourist() {
         return tourist;
     }
 
-    public void setTourist(Tourist tourist) {
+    public void setTourist(List<Tourist> tourist) {
         this.tourist = tourist;
     }
+
 
     public long getId() {
         return id;
@@ -67,7 +77,6 @@ public class Flight {
     public void setAmountOfFPlaces(int amountOfFPlaces) {
         this.amountOfFPlaces = amountOfFPlaces;
     }
-
 
 
     public int getPrice() {
