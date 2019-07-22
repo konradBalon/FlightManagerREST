@@ -17,7 +17,7 @@ public class Flight {
 
     @ManyToMany
     @JoinColumn(name = "TOURIST_ID")
-    @JsonIgnore
+   @JsonIgnore
     private List<Tourist> tourist;
 
     public Flight() {
@@ -33,7 +33,7 @@ public class Flight {
 
     }
 
-    public void addToList(Tourist t) {
+    public void addTourist(Tourist t) {
         tourist.add(t);
     }
 
