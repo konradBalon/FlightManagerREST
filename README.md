@@ -1,17 +1,17 @@
 # FlightManagerREST
 
-# Endpointy:
-#POST
+# Endpointy
+# POST
  dodawanie turysty  "/tourist/add"
  dodawanie lotu  "/flight/add"
-#GET
+# GET
  zwraca zapisane w bazie loty  "/flights"
  zwraca lot o podanym id  "/flight/id"
  zwraca zapisanych w bazie turystów  "/tourists"
  zwraca turystę o podanym id "/tourist/id"
-#PATCH
+# PATCH
  przypisuje lot dla turysty (id podane w endpoincie) = tourist/assignFlight/{touristId}/{flightId}
-#DELETE
+# DELETE
 usuwanie turysty o podanym id "/tourist/delete/{id}"
 usuwanie lotu o podanym id "/flight/delete/{id}"
 
