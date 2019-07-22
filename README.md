@@ -1,5 +1,22 @@
 # FlightManagerREST
-# FlightManagerREST
+
+# Endpointy:
+#POST
+ dodawanie turysty  "/tourist/add"
+ dodawanie lotu  "/flight/add"
+#GET
+ zwraca zapisane w bazie loty  "/flights"
+ zwraca lot o podanym id  "/flight/id"
+ zwraca zapisanych w bazie turystów  "/tourists"
+ zwraca turystę o podanym id "/tourist/id"
+#PATCH
+ przypisuje lot dla turysty (id podane w endpoincie) = tourist/assignFlight/{touristId}/{flightId}
+#DELETE
+usuwanie turysty o podanym id "/tourist/delete/{id}"
+usuwanie lotu o podanym id "/flight/delete/{id}"
+
+
+ 
 Zadanie dla Kandydatów
 (sytuacja opisana w zadaniu jest hipotetyczna, w tej chwili nie budujemy takiego systemu...)
 Zostaliśmy poproszeni o stworzenie aplikacji do zarządzania turystycznymi lotami w kosmos.
